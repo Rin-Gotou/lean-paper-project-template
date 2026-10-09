@@ -1,0 +1,11 @@
+{
+  "lean4.automaticallyBuildDependencies": true,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/lean-paper-viewer.json"
+      ],
+      "url": "./lean-paper-viewer.schema.json"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "lean-paper-project-template",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Repository-local build and validation commands for a Lean-linked paper.",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build:pdf": "mkdir -p tmp/tex && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=tmp/tex paper/main.tex && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=tmp/tex paper/main.tex && cp tmp/tex/main.pdf paper/main.pdf",
+    "validate:links": "node ./tools/validate-links.mjs",
+    "check:paper": "npm run build:pdf && npm run validate:links"
+  }
+}

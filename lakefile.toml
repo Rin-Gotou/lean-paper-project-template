@@ -1,0 +1,10 @@
+name = "paper_project"
+version = "0.1.0"
+defaultTargets = ["PaperProject"]
+
+[leanOptions]
+relaxedAutoImplicit = false
+pp.unicode.fun = true
+
+[[lean_lib]]
+name = "PaperProject"

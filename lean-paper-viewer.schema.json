@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lean-paper:schema/lean-paper-viewer",
+  "title": "Lean Paper Viewer manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["paper", "links"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "pdf"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pdf": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\.pdf$"
+        }
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "lean", "review"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*:[A-Za-z0-9][A-Za-z0-9._-]*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lean": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["declaration", "file"],
+            "properties": {
+              "declaration": {
+                "type": "string",
+                "minLength": 1
+              },
+              "file": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\.lean$"
+              }
+            }
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status"],
+            "properties": {
+              "status": {
+                "enum": ["proposed", "resolved", "reviewed"]
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

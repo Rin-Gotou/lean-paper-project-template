@@ -1,0 +1,45 @@
+{
+  "$schema": "./lean-paper-viewer.schema.json",
+  "paper": {
+    "title": "Lean Paper Project Template",
+    "pdf": "paper/main.pdf"
+  },
+  "links": [
+    {
+      "id": "def:twice",
+      "label": "Definition 1.1 (Twice)",
+      "lean": {
+        "declaration": "PaperProject.twice",
+        "file": "PaperProject/Definitions.lean"
+      },
+      "review": {
+        "status": "reviewed",
+        "note": "The TeX and Lean definitions both define twice n as n + n."
+      }
+    },
+    {
+      "id": "thm:twice-eq-add-self",
+      "label": "Theorem 1.2 (Expansion of twice)",
+      "lean": {
+        "declaration": "PaperProject.twice_eq_add_self",
+        "file": "PaperProject/MainTheorems.lean"
+      },
+      "review": {
+        "status": "reviewed",
+        "note": "The paper and Lean statements are the same expansion of twice."
+      }
+    },
+    {
+      "id": "thm:zero-add",
+      "label": "Theorem 1.3 (Zero on the left)",
+      "lean": {
+        "declaration": "PaperProject.zero_add",
+        "file": "PaperProject/MainTheorems.lean"
+      },
+      "review": {
+        "status": "reviewed",
+        "note": "The paper and Lean statements are the same identity on Nat."
+      }
+    }
+  ]
+}

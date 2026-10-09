@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Lean Paper: Build Lean",
+      "type": "shell",
+      "command": "lake build",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Lean Paper: Test Lean",
+      "type": "shell",
+      "command": "lake env lean Tests/Basic.lean",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lean Paper: Build PDF",
+      "type": "shell",
+      "command": "npm run build:pdf",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Lean Paper: Validate Links",
+      "type": "shell",
+      "command": "npm run validate:links",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lean Paper: Check All",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Lean Paper: Build Lean",
+        "Lean Paper: Test Lean",
+        "Lean Paper: Build PDF",
+        "Lean Paper: Validate Links"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

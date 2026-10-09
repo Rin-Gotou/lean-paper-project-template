@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=30mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{paperblue}{HTML}{245CA6}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=paperblue,
+  urlcolor=paperblue,
+  pdfborder={0 0 0},
+  pdftitle={Lean Paper Project Template}
+}
+
+% The installed VS Code extension intercepts this private URI locally.
+% No web request or operating-system protocol registration is involved.
+\newcommand{\leanlink}[2]{%
+  \href{lean-paper:#1}{#2}%
+}
+
+% Replace this simple heading helper with the theorem style used by your paper.
+% Keeping the link on a short heading avoids page-break ambiguity.
+\newenvironment{leanstatement}[2]{%
+  \par\medskip\noindent
+  \leanlink{#1}{\textbf{#2}}%
+  \quad\itshape
+}{%
+  \par\medskip
+}
+
+\title{Lean Paper Project Template}
+\author{Replace with author name}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Linked statements}
+
+The blue headings below are semantic PDF links. After opening this PDF with
+Lean Paper Viewer, clicking a heading opens the corresponding declaration in
+the right-hand Lean editor.
+
+\begin{leanstatement}{def:twice}{Definition 1.1 (Twice).}
+For a natural number $n$, define
+\[
+  \operatorname{twice}(n) := n+n.
+\]
+\end{leanstatement}
+
+\begin{leanstatement}{thm:twice-eq-add-self}{Theorem 1.2 (Expansion of twice).}
+For every natural number $n$,
+\[
+  \operatorname{twice}(n)=n+n.
+\]
+\end{leanstatement}
+
+\begin{leanstatement}{thm:zero-add}{Theorem 1.3 (Zero on the left).}
+For every natural number $n$,
+\[
+  0+n=n.
+\]
+\end{leanstatement}
+
+\section{Adapting the template}
+
+Keep \verb|\leanlink| in the preamble, but adapt \verb|leanstatement| to the
+theorem style of the actual paper. Use stable semantic IDs and update
+\texttt{lean-paper-viewer.json} whenever a link is added or removed.
+
+\end{document}
