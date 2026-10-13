@@ -1,7 +1,41 @@
 # Lean Paper Project Template for Viewer v0.8.0
 
 TeX論文、そのPDF、Lean 4形式化、両者の対応表を同じVS Codeワークスペースで
-管理するための実用テンプレートです。PDF内の見出しをクリックすると対応するLean宣言へ
+管理するための実用テンプレートです。
+
+| 操作 | コマンド | ショートカット |
+|---|---|---|
+| Viewerを開く | `Lean Paper Viewer: Open Paper and Lean Links` | `Ctrl+Alt+L` |
+| 対応を検証 | `Lean Paper Viewer: Validate Paper and Lean Links` | `Ctrl+Alt+Shift+L` |
+
+macOSでは`Ctrl`の代わりに`Cmd`です。PDF内の青い見出しをクリックすると、右側の
+エディタで対応するLean宣言が開きます。同一ファイル内と異なるLeanファイル間の移動を
+3つのサンプルで確認できます。
+
+PDFリンクを選ぶと、Viewer上部に選択中の対応が表示されます。`Review`はmanifestへ
+保存される状態、`Lean`は現在のVS Codeセッションで得た検証結果です。
+
+`Review操作...`から次を実行できます。
+
+- `宣言を解決`: Lean Language Serverで宣言を一意に解決し、必要なら`resolved`へ更新
+- `確認済みにする`: 人間が数学的対応を確認してから`reviewed`へ更新
+- `再確認が必要`: 対応を`proposed`へ戻す
+
+上部の`コメント`、または`Review操作...`内の`noteを編集`を選ぶと、Viewer下部に
+複数行の入力欄が開きます。別のEditor tabやPanelは増えません。
+
+- 保存: `Ctrl+Enter`（macOSは`Cmd+Enter`）
+- キャンセル: `Esc`
+- 空欄で保存: noteを削除
+
+編集中にCodexや別エディタが同じnoteを変更した場合は、自動上書きせず
+`manifestを再読込`または`自分の内容で上書き`を選べます。未保存の入力は、別のPDFリンクへ
+移動しても元のリンクに紐づけて保持されます。
+
+Viewerを開かずに状態を変える場合は、コマンドパレットの
+`Lean Paper Viewer: Update Link Review Status`を使えます。
+
+PDF内の見出しをクリックすると対応するLean宣言へ
 移動でき、Review statusとコメントもViewer内で更新できます。
 
 ## 1. テンプレートとViewerをまとめて入手する
