@@ -15,15 +15,27 @@ TeX論文、そのPDF、Lean 4形式化、両者の対応表を同じVS Codeワ�
 バージョン別の配布は[Releases](https://github.com/Rin-Gotou/lean-paper-project-template/releases)から確認できます。
 Releaseの`Source code (zip)`にも、そのタグ時点で同梱されたVSIXが含まれます。
 
-必要な環境は、VS Code、Lean 4（elanで管理）、Node.js 22.13以降、
-および`pdflatex`を利用できるTeX環境です。Leanのバージョンは`lean-toolchain`で指定されています。
+Windows・macOS・Linuxの通常のVS Codeで利用できます。WSLは任意です。
+必要な環境は次のとおりです。
+
+| ツール | 準備 |
+| --- | --- |
+| VS Code | 1.96以降。公式Lean 4 Extensionと同梱VSIXをインストール |
+| Lean 4 / Lake | [Leanの公式手順](https://lean-lang.org/install/manual/)でelanを導入。Leanの版は`lean-toolchain`に従います |
+| Node.js | 22.13以降。`node`と`npm`をターミナルから実行できること |
+| TeX | WindowsならMiKTeXやTeX Live、macOSならMacTeXやTeX Liveなど。`pdflatex`をPATHへ追加 |
+
+PDFビルドはNode.jsでディレクトリ作成・ファイルコピー・`pdflatex`起動を行い、
+Unixシェルの`mkdir -p`や`cp`を必要としません。TeXの不足パッケージは利用する
+TeX環境で追加してください。MiKTeXで自動インストールの確認が表示される場合は、
+先に必要なパッケージをインストールしてください。
 
 ## 2. 同梱Viewerをインストールする
 
 展開した`MyPaper`フォルダ自体をVS Codeで開きます。WSLを使う場合は、
 WSLのターミナルから開いてください。
 
-```bash
+```sh
 cd MyPaper
 code .
 ```
@@ -36,11 +48,18 @@ VS Codeへ次をインストールします。WSLの場合は両方をWSL側へ�
 VSIXは、コマンドパレットの`Extensions: Install from VSIX...`を実行して選択します。
 インストール後に`Developer: Reload Window`を実行してください。
 ターミナルからインストールする場合は、プロジェクト直下で次を実行します。
+WindowsのPowerShell・コマンドプロンプト、macOS・Linuxのターミナルで同じコマンドを使えます。
 
-```bash
+```sh
 code --install-extension leanprover.lean4
 code --install-extension ./dist/lean-paper-viewer-0.8.0.vsix --force
 ```
+
+`code`が見つからない場合も、VS CodeのGUIからフォルダを開き、VSIXをインストールできます。
+WindowsではVS CodeのインストーラーでPATHへの追加を選択します。
+macOSではコマンドパレットから`Shell Command: Install 'code' command in PATH`を実行します。
+詳しくは[VS Codeの公式CLI説明](https://code.visualstudio.com/docs/configure/command-line)を参照してください。
+WindowsのPowerShellで`npm.ps1`の実行がブロックされた場合は、以下の`npm`を`npm.cmd`に置き換えて実行できます。
 
 同梱VSIXのインストール後は、Viewerをビルドする作業は不要です。
 Viewerは最初のワークスペースフォルダ直下にある`lean-paper-viewer.json`を読みます。
@@ -50,19 +69,19 @@ Viewerは最初のワークスペースフォルダ直下にある`lean-paper-vi
 
 Leanをビルドします。
 
-```bash
+```sh
 lake build
 ```
 
 TeXを再コンパイルし、PDF・manifest・Leanファイルヒントをまとめて検証します。
 
-```bash
+```sh
 npm run check:paper
 ```
 
 PDFを変更せずリンクだけ再検査するときは、次を使えます。
 
-```bash
+```sh
 npm run validate:links
 ```
 
@@ -190,5 +209,5 @@ Codexは`reviewed`を設定しません。数学的な対応を人間が確認�
 └── .vscode/
 ```
 
-`tools/`と`media/pdfjs/`はCLI Validator用です。Viewer本体はインストール済みVSIXから
+`tools/`はPDFビルドとCLI Validator用、`media/pdfjs/`はCLI Validator用です。Viewer本体はインストール済みVSIXから
 動作します。

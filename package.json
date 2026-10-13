@@ -7,7 +7,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "build:pdf": "mkdir -p tmp/tex && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=tmp/tex paper/main.tex && pdflatex -interaction=nonstopmode -halt-on-error -output-directory=tmp/tex paper/main.tex && cp tmp/tex/main.pdf paper/main.pdf",
+    "build:pdf": "node ./tools/build-pdf.mjs",
     "validate:links": "node ./tools/validate-links.mjs",
     "check:paper": "npm run build:pdf && npm run validate:links"
   }
