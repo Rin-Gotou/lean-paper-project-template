@@ -1,6 +1,6 @@
 {
   "name": "lean-paper-project-template",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "description": "Repository-local build and validation commands for a Lean-linked paper.",
   "engines": {

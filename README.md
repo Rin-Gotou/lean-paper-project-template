@@ -1,4 +1,4 @@
-# Lean Paper Project Template for Viewer v0.9.0
+# Lean Paper Project Template for Viewer v0.10.0
 
 TeX論文、そのPDF、Lean 4形式化、両者の対応表を同じVS Codeワークスペースで
 管理するための実用テンプレートです。
@@ -25,7 +25,7 @@ macOSでは`Ctrl`の代わりに`Cmd`です。
 ## 1. テンプレートとViewerをまとめて入手する
 
 このリポジトリには、論文プロジェクトのテンプレートと
-[Lean Paper Viewer v0.9.0のVSIX](dist/lean-paper-viewer-0.9.0.vsix)を同梱しています。
+[Lean Paper Viewer v0.10.0のVSIX](dist/lean-paper-viewer-0.10.0.vsix)を同梱しています。
 テンプレートのZIPをダウンロードすれば、両方をまとめて入手できます。
 
 [GitHubのリポジトリ](https://github.com/Rin-Gotou/lean-paper-project-template)で
@@ -61,7 +61,7 @@ code .
 VS Codeへ次をインストールします。WSLの場合は両方をWSL側へインストールしてください。
 
 1. 公式Lean 4 Extension (`leanprover.lean4`)
-2. 同梱の`dist/lean-paper-viewer-0.9.0.vsix`
+2. 同梱の`dist/lean-paper-viewer-0.10.0.vsix`
 
 VSIXは、コマンドパレットの`Extensions: Install from VSIX...`を実行して選択します。
 インストール後に`Developer: Reload Window`を実行してください。
@@ -70,7 +70,7 @@ WindowsのPowerShell・コマンドプロンプト、macOS・Linuxのターミ�
 
 ```sh
 code --install-extension leanprover.lean4
-code --install-extension ./dist/lean-paper-viewer-0.9.0.vsix --force
+code --install-extension ./dist/lean-paper-viewer-0.10.0.vsix --force
 ```
 
 `code`が見つからない場合も、VS CodeのGUIからフォルダを開き、VSIXをインストールできます。
@@ -254,7 +254,7 @@ Codexは`reviewed`を設定しません。数学的な対応を人間が確認�
 │   ├── main.tex
 │   └── main.pdf
 ├── dist/
-│   └── lean-paper-viewer-0.9.0.vsix
+│   └── lean-paper-viewer-0.10.0.vsix
 ├── docs/linking-conventions.md
 ├── tools/
 ├── media/pdfjs/
