@@ -152,6 +152,20 @@ Viewerを開かずに状態を変える場合は、コマンドパレットの
 6. `lake build`と`npm run check:paper`を実行する。
 7. ViewerのValidatorでもLean Language Serverによる名前解決を確認する。
 
+`paper/main.tex`を編集して使います。末尾の「Adapting the template」は
+ソース内のコメントとして残してあり、PDFには表示されません。
+
+TeXファイルはリネームできます。ただし現在のビルドスクリプトは`main`を固定で参照するため、
+例えば`paper/article.tex`へ変更する場合は、次も揃えてください。
+
+- `tools/build-pdf.mjs`の入力を`paper/article.tex`へ変更する。
+- 同スクリプトのコピー元を`article.pdf`へ変更し、エラー表示のログ名も`article.log`へ変更する。
+- コピー先も`paper/article.pdf`にする場合は、`lean-paper-viewer.json`の`paper.pdf`も同じパスへ変更する。
+  コピー先を`paper/main.pdf`のままにすれば、Viewerの設定変更は不要です。
+
+リネーム後は`npm run check:paper`でPDFを再生成し、リンクを検証してください。
+TeXファイル名を変更しても、本文のリンクIDとLean宣言の対応は変わりません。
+
 TeX側の基本形は次です。
 
 ```tex
