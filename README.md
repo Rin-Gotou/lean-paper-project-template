@@ -8,7 +8,7 @@ TeX論文、そのPDF、Lean 4形式化、両者の対応表を同じVS Codeワ�
 
 | 操作 | ショートカット |
 | --- | --- |
-| Viewerを開く | `Ctrl+Alt+L` |
+| Lean Paper Viewerを開く（PDFの読み込み・描画のため、時間がかかる場合があります） | `Ctrl+Alt+L` |
 | 対応を検証 | `Ctrl+Alt+Shift+L` |
 | コメントを保存 | `Ctrl+Enter` |
 | コメント編集をキャンセル | `Esc` |
