@@ -20,7 +20,7 @@ Windows・macOS・Linuxの通常のVS Codeで利用できます。WSLは任意�
 
 | ツール | 準備 |
 | --- | --- |
-| VS Code | 1.96以降。公式Lean 4 Extensionと同梱VSIXをインストール |
+| VS Code | 1.96以降。公式Lean 4 Extensionと同梱VSIXをインストール（[手順は第2節](#2-同梱viewerをインストールする)） |
 | Lean 4 / Lake | [Leanの公式手順](https://lean-lang.org/install/manual/)でelanを導入。Leanの版は`lean-toolchain`に従います |
 | Node.js | 22.13以降。`node`と`npm`をターミナルから実行できること |
 | TeX | WindowsならMiKTeXやTeX Live、macOSならMacTeXやTeX Liveなど。`pdflatex`をPATHへ追加 |
