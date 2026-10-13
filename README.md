@@ -4,39 +4,46 @@ TeX論文、そのPDF、Lean 4形式化、両者の対応表を同じVS Codeワ�
 管理するための実用テンプレートです。PDF内の見出しをクリックすると対応するLean宣言へ
 移動でき、Review statusとコメントもViewer内で更新できます。
 
-## 1. Viewerを準備する
+## 1. テンプレートとViewerをまとめて入手する
 
-WSL側のVS Codeへ次をインストールします。
+このリポジトリには、論文プロジェクトのテンプレートと
+[Lean Paper Viewer v0.8.0のVSIX](dist/lean-paper-viewer-0.8.0.vsix)を同梱しています。
+テンプレートのZIPをダウンロードすれば、両方をまとめて入手できます。
 
-- 公式Lean 4 Extension (`leanprover.lean4`)
-- `lean-paper-viewer-0.8.0.vsix`
+[GitHubのリポジトリ](https://github.com/Rin-Gotou/lean-paper-project-template)で
+`Code → Download ZIP`を選び、展開したフォルダを論文名（例: `MyPaper`）に変更してください。
+バージョン別の配布は[Releases](https://github.com/Rin-Gotou/lean-paper-project-template/releases)から確認できます。
+Releaseの`Source code (zip)`にも、そのタグ時点で同梱されたVSIXが含まれます。
 
-開発プロジェクトからVSIXを作る場合は、開発プロジェクトのルートで次を実行します。
+必要な環境は、VS Code、Lean 4（elanで管理）、Node.js 22.13以降、
+および`pdflatex`を利用できるTeX環境です。Leanのバージョンは`lean-toolchain`で指定されています。
 
-```bash
-npm ci
-npm run check
-npm run compile
-npx @vscode/vsce package --allow-missing-repository
-```
+## 2. 同梱Viewerをインストールする
 
-生成されたVSIXは、WSLウィンドウのExtensionsビューで
-`Extensions: Install from VSIX...`を実行して選択します。インストール後に
-`Developer: Reload Window`を実行してください。
-
-通常利用ではExtension Development Hostを起動する必要はありません。
-
-## 2. テンプレートを複製する
-
-フォルダ名を論文名に変え、WSLの通常のVS Codeウィンドウで開きます。
+展開した`MyPaper`フォルダ自体をVS Codeで開きます。WSLを使う場合は、
+WSLのターミナルから開いてください。
 
 ```bash
-cp -r lean-paper-project-template-0.8.0 MyPaper
 cd MyPaper
 code .
 ```
 
-Viewerは、最初のワークスペースフォルダ直下にある`lean-paper-viewer.json`を読みます。
+VS Codeへ次をインストールします。WSLの場合は両方をWSL側へインストールしてください。
+
+1. 公式Lean 4 Extension (`leanprover.lean4`)
+2. 同梱の`dist/lean-paper-viewer-0.8.0.vsix`
+
+VSIXは、コマンドパレットの`Extensions: Install from VSIX...`を実行して選択します。
+インストール後に`Developer: Reload Window`を実行してください。
+ターミナルからインストールする場合は、プロジェクト直下で次を実行します。
+
+```bash
+code --install-extension leanprover.lean4
+code --install-extension ./dist/lean-paper-viewer-0.8.0.vsix --force
+```
+
+同梱VSIXのインストール後は、Viewerをビルドする作業は不要です。
+Viewerは最初のワークスペースフォルダ直下にある`lean-paper-viewer.json`を読みます。
 まずはmulti-root workspaceを使わず、このフォルダ自体を開いてください。
 
 ## 3. サンプルを確認する
@@ -175,6 +182,8 @@ Codexは`reviewed`を設定しません。数学的な対応を人間が確認�
 ├── paper/
 │   ├── main.tex
 │   └── main.pdf
+├── dist/
+│   └── lean-paper-viewer-0.8.0.vsix
 ├── docs/linking-conventions.md
 ├── tools/
 ├── media/pdfjs/
