@@ -8,7 +8,7 @@ TeX論文、そのPDF、Lean 4形式化、両者の対応表を同じVS Codeワ�
 
 | 操作 | ショートカット |
 | --- | --- |
-| Lean Paper Viewerを開く（PDFの読み込み・描画のため、時間がかかる場合があります） | `Ctrl+Alt+L` |
+| Lean Paper Viewerを開く | `Ctrl+Alt+L` |
 | 対応を検証 | `Ctrl+Alt+Shift+L` |
 | コメントを保存 | `Ctrl+Enter` |
 | コメント編集をキャンセル | `Esc` |
@@ -26,6 +26,13 @@ macOSでは`Ctrl`の代わりに`Cmd`です。
 このリポジトリには、論文プロジェクトのテンプレートと
 [Lean Paper Viewer v0.8.0のVSIX](dist/lean-paper-viewer-0.8.0.vsix)を同梱しています。
 テンプレートのZIPをダウンロードすれば、両方をまとめて入手できます。
+
+同梱の0.8.0は、Workerの読み込み方法を修正した版です。
+1ページのサンプルで発生していた約30秒の起動待ちを解消し、
+検証した環境では約0.39秒で表示できました（環境やPDFによって異なります）。
+起動時間の計測表示・ログ出力は配布版には含みません。
+以前の0.8.0をインストール済みの場合も、このVSIXを`--force`で再インストールし、
+`Developer: Reload Window`を実行してください。
 
 [GitHubのリポジトリ](https://github.com/Rin-Gotou/lean-paper-project-template)で
 `Code → Download ZIP`を選び、展開したフォルダを論文名（例: `MyPaper`）に変更してください。
