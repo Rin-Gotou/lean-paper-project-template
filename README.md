@@ -152,8 +152,10 @@ Viewerを開かずに状態を変える場合は、コマンドパレットの
 6. `lake build`と`npm run check:paper`を実行する。
 7. ViewerのValidatorでもLean Language Serverによる名前解決を確認する。
 
-`paper/main.tex`を編集して使います。末尾の「Adapting the template」は
-ソース内のコメントとして残してあり、PDFには表示されません。
+`paper/main.tex`を編集して使います。プリアンブルの`\leanlink`の定義は、
+PDFからLean Viewerへリンクするために必要なので、削除せずに残してください。
+`\leanstatement`は論文の定理スタイルに合わせて変更できます。
+リンクを追加・削除した場合は、`lean-paper-viewer.json`の対応表も更新してください。
 
 TeXファイルはリネームできます。ただし現在のビルドスクリプトは`main`を固定で参照するため、
 例えば`paper/article.tex`へ変更する場合は、次も揃えてください。

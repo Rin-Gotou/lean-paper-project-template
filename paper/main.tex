@@ -15,6 +15,7 @@
   pdftitle={Lean Paper Project Template}
 }
 
+% \leanlink is used by Lean Paper Viewer to link PDF text to Lean declarations.
 % The installed VS Code extension intercepts this private URI locally.
 % No web request or operating-system protocol registration is involved.
 \newcommand{\leanlink}[2]{%
@@ -77,10 +78,4 @@ A short inline formula can be linked as well:
 These links reuse the same semantic IDs as the headings, so they open the
 same Lean declarations without additional manifest entries.
 
-% \section{Adapting the template}
-%
-% Keep \verb|\leanlink| in the preamble, but adapt \verb|leanstatement| to the
-% theorem style of the actual paper. Use stable semantic IDs and update
-% \texttt{lean-paper-viewer.json} whenever a link is added or removed.
-%
 \end{document}
