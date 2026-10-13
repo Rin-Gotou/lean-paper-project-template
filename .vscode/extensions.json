@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "leanprover.lean4",
-    "local-development.lean-paper-viewer-step1"
+    "leanprover.lean4"
   ]
 }

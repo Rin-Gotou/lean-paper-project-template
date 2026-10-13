@@ -1,5 +1,4 @@
 {
-  "lean4.automaticallyBuildDependencies": true,
   "json.schemas": [
     {
       "fileMatch": [

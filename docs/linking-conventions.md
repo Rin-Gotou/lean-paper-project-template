@@ -58,36 +58,26 @@ must contain one entry for that ID.
 
 Codex must never set `reviewed`.
 
-## Step 8 review actions
+`review.status` and the current Lean validation result are intentionally
+separate. A transient Language Server failure does not automatically demote a
+human-reviewed mapping. Conversely, successful symbol resolution does not
+establish mathematical equivalence.
 
-Lean Paper Viewer Step 8 (0.7.0) keeps the existing manifest format and command
-IDs. Its extension ID remains `local-development.lean-paper-viewer-step1`.
-Select a PDF link to see two independent indicators in the Viewer toolbar:
+## Updating notes in the Viewer
 
-- `Review`: the manifest's persistent proposed/resolved/reviewed state.
-- `Lean`: this session's unchecked/resolved/file-hint/unresolved/ambiguous result.
+After selecting a PDF link, use the Viewer toolbar's `コメント` action (or
+`Review操作...` → `noteを編集`) to open the multiline editor at the bottom of
+the Viewer. Save with `Ctrl+Enter` (`Cmd+Enter` on macOS), cancel with `Esc`, or
+save an empty value to remove the note.
 
-Use `Review操作...` or `Lean Paper Viewer: Update Link Review Status` to:
+The Viewer detects when the same note has changed on disk since editing began.
+In that case, choose explicitly between reloading the manifest version and
+overwriting it with the draft. Drafts are retained per link while navigating
+between PDF links.
 
-- Resolve the declaration through Lean Language Server. A successful unique
-  resolution sets resolved unless the mapping is already reviewed.
-- Mark a mapping reviewed after human mathematical review and confirmation.
-- Return a mapping to proposed when it needs another review.
-- Edit the note; submitting an empty note removes it.
-
-Status/note edits update only the relevant manifest fields, preserving other
-content and formatting. Keep the file ordinary JSON without comments or
-trailing commas: targeted editing uses JSONC utilities, but the Viewer and CLI
-read strict JSON. External manifest saves are reflected in the open Viewer.
-Neither failed live validation nor file fallback automatically downgrades
-reviewed. Codex must still return a semantically changed mapping to proposed.
-
-Review status is not embedded in the PDF. A status/note-only change does not
-require PDF rebuilding; a TeX link change does. Unchanged human-reviewed sample
-mappings keep their states; replacement statements require a new review.
-
-Open the Viewer with `Ctrl+Alt+L`, validate with `Ctrl+Alt+Shift+L` (macOS uses
-`Cmd` instead of `Ctrl`). VS Code Keyboard Shortcuts can resolve key conflicts.
+An agent may update a note without changing the current review state if the
+underlying mapping is unchanged. Creating or semantically changing a mapping
+always resets the state to `proposed`.
 
 ## Validation boundary
 

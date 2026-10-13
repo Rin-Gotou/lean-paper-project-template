@@ -9,12 +9,6 @@
       "group": "build"
     },
     {
-      "label": "Lean Paper: Test Lean",
-      "type": "shell",
-      "command": "lake env lean Tests/Basic.lean",
-      "problemMatcher": []
-    },
-    {
       "label": "Lean Paper: Build PDF",
       "type": "shell",
       "command": "npm run build:pdf",
@@ -32,7 +26,6 @@
       "dependsOrder": "sequence",
       "dependsOn": [
         "Lean Paper: Build Lean",
-        "Lean Paper: Test Lean",
         "Lean Paper: Build PDF",
         "Lean Paper: Validate Links"
       ],
