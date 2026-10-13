@@ -162,6 +162,24 @@ TeX側の基本形は次です。
 \leanlink{thm:main-result}{\textbf{Theorem 1.1 (Main theorem).}}
 ```
 
+定理の見出し以外にも、本文中の用語・短い文章・インライン数式にリンクを付けられます。
+サンプルPDFの「Links in ordinary prose」に実例があります。
+
+```tex
+% 用語から定義へ
+\leanlink{def:twice}{\emph{twice}}
+
+% 本文の主張から対応するLean宣言へ
+\leanlink{thm:zero-add}{adding zero on the left leaves a natural number unchanged}
+
+% インライン数式から対応するLean宣言へ
+\leanlink{thm:twice-eq-add-self}{\(\operatorname{twice}(n)=n+n\)}
+```
+
+同じ定義・主張を再度参照する場合は、同じIDを再利用できます。
+manifestにはIDごとに1件だけ登録します。リンク先は見出しの種類ではなく、
+その用語・文章・式に対応するLean宣言で決まります。
+
 改ページしうる本文全体ではなく、見出し・用語・式など局所的な範囲を囲みます。
 TeXコンパイル時に通常のPDFリンク注釈として埋め込まれるため、紙面上の位置をmanifestへ
 保存する必要はありません。

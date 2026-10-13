@@ -65,6 +65,18 @@ For every natural number $n$,
 \]
 \end{leanstatement}
 
+\section{Links in ordinary prose}
+
+Links need not be attached to theorem headings. For example, the term
+\leanlink{def:twice}{\emph{twice}} refers to the function defined above.
+In an ordinary sentence, we can also link the assertion that
+\leanlink{thm:zero-add}{adding zero on the left leaves a natural number unchanged}.
+A short inline formula can be linked as well:
+\leanlink{thm:twice-eq-add-self}{\(\operatorname{twice}(n)=n+n\)}.
+
+These links reuse the same semantic IDs as the headings, so they open the
+same Lean declarations without additional manifest entries.
+
 \section{Adapting the template}
 
 Keep \verb|\leanlink| in the preamble, but adapt \verb|leanstatement| to the
